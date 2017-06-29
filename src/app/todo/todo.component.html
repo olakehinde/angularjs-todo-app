@@ -1,0 +1,38 @@
+<section class="views">
+    <div class="todolist todolist-inactive view">
+      <h3 class="header">Tasks</h3>
+      <div class="write-button"></div>
+      <ul class="task-list">
+        <li class="card task" *ngFor="let todo of data">
+          <div class="delete-icon delete-task"></div>
+          <div class="task-info">
+            <h3 class="task-date">{{ todo['date'] }}</h3>
+            <h3 class="task-time">{{ todo['time'] }} </h3>
+          </div>
+          <p class="task-detail">{{ todo['task'] }}</p>
+        </li>
+      </ul>
+    </div>
+
+    <div [ngClass]="{'create-task': true, 'create-task-active': toggle, 'view': true}" >
+      <form class="create-task-form" (submit)='getTodoDetail(month.value + day.value + year.value, task.value, time.value)' #taskForm="ngForm" >
+        <div class="close-icon close-form"></div>
+        <label for="create-task-form" class="header"><h2>New Task</h2></label>
+
+        <label for="year">Date</label>
+        <input type="text" class="month" placeholder="Month" #month>
+
+        <input type="text" class="day" placeholder="Day" #day>
+
+        <input type="text" class="year" placeholder="Year" #year>
+
+        <label for="task-detail">Task</label>
+        <textarea class="task-detail" #task></textarea>
+
+        <label for="time">Time</label>
+        <input type="text" class="time" placeholder="Time" #time>
+
+        <input type="submit" class="submit" value="Publish">
+      </form>
+    </div>
+</section>
