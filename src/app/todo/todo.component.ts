@@ -8,11 +8,11 @@ templateUrl: './todo.component.html',
 export class TodoComponent implements OnInit {
   private data: Array<Object>
 
-  private toggle:boolean = true;
+  private toggle: Boolean;
 
   constructor() {
     this.data = []
-    this.toggle = false;
+    this.toggle = true;
   }
 
   ngOnInit() {
@@ -22,9 +22,9 @@ export class TodoComponent implements OnInit {
   getTodoDetail(date: string, task:string, time: string) {
     var values: object = {}
 
-    values["date"] = date
-    values["task"] = task
-    values["time"] = time
+    values["date"] = date;
+    values["task"] = task;
+    values["time"] = time;
 
     this.data.push(values);
     console.log(values);
